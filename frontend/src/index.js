@@ -14,7 +14,7 @@ import registerServiceWorker from './registerServiceWorker';
 import configureStore, { history } from './store/configureStore';
 
 import Routes from './routes/index';
-import './index.css';
+// import './index.css';
 
 // region jquery im~ports
 // eslint-disable-next-line no-multi-assign

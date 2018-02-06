@@ -1,0 +1,15 @@
+{
+  "extends": [
+    "airbnb",
+    "react-app",
+    "eslint:recommended",
+    "plugin:import/errors",
+    "plugin:import/warnings",
+    "plugin:jsx-a11y/recommended"
+  ],
+  "plugins": ["react"],
+  "rules": {
+    "jsx-a11y/href-no-hash": 0,
+    "jsx-a11y/anchor-is-valid": 0
+  }
+}
