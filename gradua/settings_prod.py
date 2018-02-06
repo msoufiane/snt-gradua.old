@@ -3,8 +3,8 @@ import dj_database_url
 import os
 
 
-#ALLOWED_HOSTS = ['gradua.sentad.com']
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['gradua.sentad.com']
+# ALLOWED_HOSTS = ['*']
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 DEBUG = True
 

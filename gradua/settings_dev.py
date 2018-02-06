@@ -25,7 +25,7 @@ MIDDLEWARE = [
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, "fronted/public"), ],
+        'DIRS': [os.path.join(BASE_DIR, "frontend/public"), ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
