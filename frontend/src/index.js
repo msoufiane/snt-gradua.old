@@ -16,7 +16,7 @@ import configureStore, { history } from './store/configureStore';
 import Routes from './routes/index';
 // import './index.css';
 
-// region jquery im~ports
+// region jquery imports
 // eslint-disable-next-line no-multi-assign
 window.jQuery = window.$ = $;
 require('babel-polyfill');

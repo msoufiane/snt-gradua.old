@@ -17,6 +17,8 @@
         <div id="wrapper">
           Loading ...
         </div>
-        {% render_bundle 'main' %}
+        {% if DEV_MODE %}
+            {% render_bundle 'main' %}
+        {% endif %}
     </body>
 </html>
