@@ -106,3 +106,4 @@ staticfiles
 frontend/node_modules/
 webpack-stats.prod.json
 webpack-stats.dev.json
+assets/
