@@ -128,3 +128,29 @@
   border-bottom-right-radius: 2px;
   border-bottom-left-radius: 0;
 }
+
+.control-sidebar-menu .menu-icon {
+  float: left;
+  width: 20px;
+  height: 20px;
+  border-radius: 25%;
+  text-align: center;
+  line-height: 20px;
+}
+
+.control-sidebar-menu .menu-info {
+  margin-left: 30px;
+  margin-top: 3px;
+}
+
+.control-sidebar-menu li a {
+  color: #b8c7cf;
+}
+
+sidebar-dark .control-sidebar-subheading {
+  color: #b8c7cf;
+}
+
+.control-sidebar-dark, .control-sidebar-dark .control-sidebar-bg {
+  background: #232d33;
+}

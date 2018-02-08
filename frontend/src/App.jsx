@@ -43,7 +43,7 @@ const App = function App(props) {
         <Notifications />
         <Profile />
         <li>
-          <a href="#" data-toggle="control-sidebar"><i className="fa fa-gears" /></a>
+          <a href="#" data-toggle="control-sidebar"><i className="fa fa-cog" /></a>
         </li>
       </NavbarWrapper>
 
@@ -60,6 +60,7 @@ const App = function App(props) {
 
       <Footer />
       <Settings />
+      <div className="control-sidebar-bg" />
     </div>
   );
 };
