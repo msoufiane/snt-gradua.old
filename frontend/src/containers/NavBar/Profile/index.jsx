@@ -4,8 +4,10 @@
 
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import Gravatar from 'react-gravatar';
 import PropTypes from 'prop-types';
 import { logoutRequest } from '../../../actions/login';
+
 
 class ProfileContainer extends Component {
   handleLogout(event) {
@@ -20,12 +22,12 @@ class ProfileContainer extends Component {
     return (
       <li className="dropdown user user-menu">
         <a href="/" className="dropdown-toggle" data-toggle="dropdown">
-          <img src="img/user2-160x160.jpg" className="user-image" alt="User" />
+          <Gravatar email={user.email} size={160} className="user-image" alt="User" />
           <span className="hidden-xs">{capitaize(user.first_name)} {capitaize(user.last_name)}</span>
         </a>
         <ul className="dropdown-menu">
           <li className="user-header">
-            <img src="img/user2-160x160.jpg" className="img-circle" alt="User" />
+            <Gravatar email={user.email} size={160} className="img-circle" alt="User" />
             <p>
               {capitaize(user.first_name)} {capitaize(user.last_name)} - {user.username}
             </p>
@@ -33,10 +35,10 @@ class ProfileContainer extends Component {
 
           <li className="user-footer">
             <div className="pull-left">
-              <a href="/" className="btn btn-default btn-flat">Profile</a>
+              <a href="/" className="btn btn-default btn-flat"><i className="fa fa-user fs-14" />&nbsp;Account</a>
             </div>
             <div className="pull-right">
-              <button onClick={this.handleLogout} className="btn btn-default btn-flat">Sign out</button>
+              <button onClick={this.handleLogout} className="btn btn-default btn-flat"><i className="fa fa-sign-out fs-14" />&nbsp;Logout</button>
             </div>
           </li>
         </ul>

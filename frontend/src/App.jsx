@@ -15,9 +15,10 @@ import BreadCrumb from './containers/Content/BreadCrumb';
 import NavbarWrapper from './components/NavBar/NavbarWrapper';
 
 import {
-  Tasks,
+  //Tasks,
   Profile,
-  Messages,
+  Settings,
+  //Messages,
   Notifications,
 } from './containers/NavBar';
 // endregion
@@ -27,7 +28,7 @@ import SideBarWrapper from './components/SideBar';
 
 import {
   MenuTree,
-  UserPanel,
+  //UserPanel,
 } from './containers/SideBar';
 // endregion
 
@@ -39,13 +40,14 @@ const App = function App(props) {
   return (
     <div className="wrapper">
       <NavbarWrapper>
-        <Messages />
         <Notifications />
-        <Tasks />
         <Profile />
+        <li>
+          <a href="#" data-toggle="control-sidebar"><i className="fa fa-gears" /></a>
+        </li>
       </NavbarWrapper>
 
-      <SideBarWrapper UserPanel={UserPanel} Menu={MenuTree} />
+      <SideBarWrapper Menu={MenuTree} />
 
       <ContentWrapper>
         <ContentHeader>
@@ -57,6 +59,7 @@ const App = function App(props) {
       </ContentWrapper>
 
       <Footer />
+      <Settings />
     </div>
   );
 };

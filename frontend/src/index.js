@@ -1,5 +1,5 @@
 /* eslint-disable react/jsx-filename-extension */
-import 'admin-lte/dist/css/skins/skin-green-light.css';
+import 'admin-lte/dist/css/skins/skin-green.css';
 import 'ionicons/dist/css/ionicons-core.css';
 import 'font-awesome/css/font-awesome.css';
 import 'bootstrap/dist/css/bootstrap.css';
@@ -14,7 +14,7 @@ import registerServiceWorker from './registerServiceWorker';
 import configureStore, { history } from './store/configureStore';
 
 import Routes from './routes/index';
-// import './index.css';
+import './index.css';
 
 // region jquery imports
 // eslint-disable-next-line no-multi-assign
