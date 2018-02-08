@@ -6,7 +6,7 @@ import React from 'react';
 
 const Settings = function Settings() {
   return (
-    <aside className="control-sidebar control-sidebar-dark control-sidebar-open">
+    <aside className="control-sidebar control-sidebar-dark">
       <div className="tab-content">
         <ul className="control-sidebar-menu">
           <li>
