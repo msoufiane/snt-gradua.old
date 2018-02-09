@@ -11,8 +11,20 @@ const MenuTree = function MenuTree() {
       </li>
 
       <li>
+        <Link to="/offers">
+          <i className="fa fa-dollar" /> <span>Offers</span>
+        </Link>
+      </li>
+
+      <li>
         <Link to="/servers">
           <i className="fa fa-hdd-o" /> <span>Servers</span>
+        </Link>
+      </li>
+
+      <li>
+        <Link to="/traffic-sources">
+          <i className="fa fa-bullhorn" /> <span>Traffic Sources</span>
         </Link>
       </li>
 
@@ -35,10 +47,10 @@ const MenuTree = function MenuTree() {
           </span>
         </a>
         <ul className="treeview-menu">
-          <li><a href="#"><i className="fa fa-circle" />Assets</a></li>
-          <li><a href="#"><i className="fa fa-circle" />Forms</a></li>
-          <li><a href="#"><i className="fa fa-circle" />Landing Pages</a></li>
-          <li><a href="#"><i className="fa fa-circle" />Dynamic Contents</a></li>
+          <li><Link to="/components"><i className="fa fa-dot-circle-o" />Assets</Link></li>
+          <li><Link to="/components"><i className="fa fa-dot-circle-o" />Forms</Link></li>
+          <li><Link to="/components"><i className="fa fa-dot-circle-o" />Landing Pages</Link></li>
+          <li><Link to="/components"><i className="fa fa-dot-circle-o" />Dynamic Contents</Link></li>
         </ul>
       </li>
 

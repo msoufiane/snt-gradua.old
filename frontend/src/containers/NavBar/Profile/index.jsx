@@ -3,6 +3,7 @@
  */
 
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Gravatar from 'react-gravatar';
 import PropTypes from 'prop-types';
@@ -35,7 +36,7 @@ class ProfileContainer extends Component {
 
           <li className="user-footer">
             <div className="pull-left">
-              <a href="/" className="btn btn-default btn-flat"><i className="fa fa-user fs-14" />&nbsp;Account</a>
+              <Link to="/account" className="btn btn-default btn-flat"><i className="fa fa-user fs-14" />&nbsp;Account</Link>
             </div>
             <div className="pull-right">
               <button onClick={this.handleLogout} className="btn btn-default btn-flat"><i className="fa fa-sign-out fs-14" />&nbsp;Logout</button>
