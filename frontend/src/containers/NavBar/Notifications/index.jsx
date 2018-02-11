@@ -3,6 +3,7 @@
  */
 
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Notifications = function Notifications() {
   return (
@@ -16,13 +17,13 @@ const Notifications = function Notifications() {
         <li>
           <ul className="menu">
             <li>
-              <a href="/">
+              <Link to="/notifications">
                 <i className="fa fa-users text-aqua" /> 5 new members joined today
-              </a>
+              </Link>
             </li>
           </ul>
         </li>
-        <li className="footer"><a href="/">View all</a></li>
+        <li className="footer"><Link to="/notifications">View all</Link></li>
       </ul>
     </li>
   );

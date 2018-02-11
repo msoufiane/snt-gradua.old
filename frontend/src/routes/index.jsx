@@ -15,6 +15,7 @@ import Campaigns from '../screens/Campaigns';
 import Reports from '../screens/Reports';
 
 import Account from '../screens/Account';
+import Notifications from '../screens/Notifications';
 
 import Categories from '../screens/Categories';
 import Configuration from '../screens/Configuration';
@@ -31,31 +32,32 @@ const Routes = function Routes() {
   return (
     <Switch>
       <Route path="/login" component={Login} />
-      <AuthenticatedRoute exact path="/" component={HomePage} />
+      <AuthenticatedRoute exact path="/" component={HomePage} activeMenuItem='' />
 
       (// sidebar links)
-      <AuthenticatedRoute exact path="/dashboard" component={Dashboard} />
-      <AuthenticatedRoute exact path="/offers" component={Offers} />
-      <AuthenticatedRoute exact path="/servers" component={Servers} />
-      <AuthenticatedRoute exact path="/traffic-sources" component={TrafficSources} />
-      <AuthenticatedRoute exact path="/contacts" component={Contacts} />
-      <AuthenticatedRoute exact path="/segments" component={Segments} />
-      <AuthenticatedRoute exact path="/components" component={Components} />
-      <AuthenticatedRoute exact path="/campaigns" component={Campaigns} />
-      <AuthenticatedRoute exact path="/reports" component={Reports} />
+      <AuthenticatedRoute exact path="/dashboard" component={Dashboard}  activeMenuItem='dashboard' />
+      <AuthenticatedRoute exact path="/offers" component={Offers}  activeMenuItem='offers' />
+      <AuthenticatedRoute exact path="/servers" component={Servers}  activeMenuItem='servers' />
+      <AuthenticatedRoute exact path="/traffic-sources" component={TrafficSources}  activeMenuItem='traffic-sources' />
+      <AuthenticatedRoute exact path="/contacts" component={Contacts}  activeMenuItem='contacts' />
+      <AuthenticatedRoute exact path="/segments" component={Segments}  activeMenuItem='segments' />
+      <AuthenticatedRoute exact path="/components" component={Components}  activeMenuItem='components' />
+      <AuthenticatedRoute exact path="/campaigns" component={Campaigns}  activeMenuItem='campaigns' />
+      <AuthenticatedRoute exact path="/reports" component={Reports}  activeMenuItem='reports' />
 
       (// Navbar Links)
-      <AuthenticatedRoute exact path="/account" component={Account} />
+      <AuthenticatedRoute exact path="/account" component={Account}  activeMenuItem='' />
+      <AuthenticatedRoute exact path="/notifications" component={Notifications}  activeMenuItem='' />
 
       (// Settings Links)
-      <AuthenticatedRoute exact path="/categories" component={Categories} />
-      <AuthenticatedRoute exact path="/configuration" component={Configuration} />
-      <AuthenticatedRoute exact path="/users" component={Users} />
-      <AuthenticatedRoute exact path="/roles" component={Roles} />
-      <AuthenticatedRoute exact path="/webhooks" component={Webhooks} />
-      <AuthenticatedRoute exact path="/custom-fields" component={CustomFields} />
+      <AuthenticatedRoute exact path="/categories" component={Categories}  activeMenuItem='categories' />
+      <AuthenticatedRoute exact path="/configuration" component={Configuration}  activeMenuItem='configuration' />
+      <AuthenticatedRoute exact path="/users" component={Users}  activeMenuItem='users' />
+      <AuthenticatedRoute exact path="/roles" component={Roles}  activeMenuItem='roles' />
+      <AuthenticatedRoute exact path="/webhooks" component={Webhooks}  activeMenuItem='webhooks' />
+      <AuthenticatedRoute exact path="/custom-fields" component={CustomFields}  activeMenuItem='custom-fields' />
 
-      <AuthenticatedRoute component={NotFoundPage} />
+      <AuthenticatedRoute component={NotFoundPage}  activeMenuItem='' />
     </Switch>
   );
 };

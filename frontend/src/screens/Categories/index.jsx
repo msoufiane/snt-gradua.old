@@ -1,16 +1,20 @@
 import React from 'react';
+import Body from '../../containers/Content/Body';
+import BreadCrumb from '../../containers/Content/BreadCrumb';
 
-const Categories = function Categories() {
+const Categories = function Contacts() {
   return (
-    <div className="row">
-      <div className="col-xs-12">
-        <div className="box">
-          <div className="box-header with-border">header</div>
-          <div className="box-body">this is the Categories</div>
-          <div className="box-footer clearfix">footer</div>
+    <Body headerTitle='Categories' headerControls={BreadCrumb}>
+      <div className="row">
+        <div className="col-xs-12">
+          <div className="box box-clean">
+            <div className="box-header">header</div>
+            <div className="box-body">this is the Categories</div>
+            <div className="box-footer box-footer-clean clearfix">footer</div>
+          </div>
         </div>
       </div>
-    </div>
+    </Body>
   );
 };
 

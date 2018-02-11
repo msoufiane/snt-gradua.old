@@ -154,3 +154,46 @@ sidebar-dark .control-sidebar-subheading {
 .control-sidebar-dark, .control-sidebar-dark .control-sidebar-bg {
   background: #232d33;
 }
+
+.content {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.box-clean {
+    border-top:  1px solid #ebedf0;
+    border-bottom:  1px solid #ebedf0;
+}
+
+.box-footer-clean {
+    border-top: None;
+}
+
+.content-wrapper {
+    background-color: #f8f8f8;
+}
+
+.sidebar-menu > .active > a > .fa, .treeview-menu > .active > a > .fa {
+    color: #e15c45;
+}
+
+.control-sidebar-menu > .active > a > .fa {
+    color: #e15c45;
+}
+
+.control-sidebar-menu > .active {
+    background: #1e282c;
+}
+
+.control-sidebar-menu > li.active > a {
+    border-left: 3px solid #e15c45;
+}
+
+html, body, main {
+  height: 100%;
+}
+
+.content-header {
+    position: relative;
+    padding: 0;
+}

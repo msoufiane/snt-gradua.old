@@ -1,13 +1,11 @@
-/**
- * Created by soufiaane on 7/8/17.
- */
-
 import React from 'react';
 import PropTypes from 'prop-types';
 
-//  style={{ height: 'auto' }}
 const SidebarWrapper = function SidebarWrapper(props) {
-  const { Menu } = props;
+  const {
+    activeItem: ActiveItem,
+    Menu
+  } = props;
   return (
     <aside className="main-sidebar">
       <section className="sidebar">
@@ -22,15 +20,15 @@ const SidebarWrapper = function SidebarWrapper(props) {
           </div>
         </form>
 
-        <Menu />
+        <Menu activeItem={ActiveItem} />
       </section>
     </aside>
   );
 };
 
 SidebarWrapper.propTypes = {
-  //UserPanel: PropTypes.func.isRequired,
-  Menu: PropTypes.func.isRequired,
+  activeItem: PropTypes.string.isRequired,
+  Menu: PropTypes.element.isRequired,
 };
 
 export default SidebarWrapper;

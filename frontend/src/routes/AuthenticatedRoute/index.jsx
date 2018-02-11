@@ -8,6 +8,7 @@ import App from '../../App';
 const AuthenticatedRoute = function AuthenticatedRoute(props) {
   const {
     component: Component,
+    activeMenuItem: ActiveMenuItem,
     location,
     isLogged,
     ...rest
@@ -16,7 +17,7 @@ const AuthenticatedRoute = function AuthenticatedRoute(props) {
     <Route
       {...rest}
       render={() => (isLogged ?
-      (<App><Component /></App>)
+      (<App activeItem={ActiveMenuItem}><Component /></App>)
       :
       (<Redirect to={{ pathname: '/login', state: { from: location } }} />)
       )}
@@ -29,6 +30,7 @@ AuthenticatedRoute.propTypes = {
   isLogged: PropTypes.bool.isRequired,
   // eslint-disable-next-line react/forbid-prop-types
   location: PropTypes.object.isRequired,
+  activeMenuItem: PropTypes.string.isRequired,
 };
 
 const mapStateToProps = state => ({

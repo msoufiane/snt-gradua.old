@@ -21,8 +21,8 @@ import './index.css';
 window.jQuery = window.$ = $;
 require('babel-polyfill');
 require('bootstrap');
-require('fastclick');
-require('slimscroll');
+// require('fastclick');
+//require('slimscroll');
 require('admin-lte');
 // endregion
 
