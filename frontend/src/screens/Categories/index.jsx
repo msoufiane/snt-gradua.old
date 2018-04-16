@@ -1,21 +1,21 @@
 import React from 'react';
-import Body from '../../containers/Content/Body';
-import BreadCrumb from '../../containers/Content/BreadCrumb';
+import { ContentWrapper } from '../../components/Wrappers';
 
-const Categories = function Contacts() {
+const Categories = function Categories() {
   return (
-    <Body headerTitle='Categories' headerControls={BreadCrumb}>
-      <div className="row">
-        <div className="col-xs-12">
-          <div className="box box-clean">
-            <div className="box-header">header</div>
-            <div className="box-body">this is the Categories</div>
-            <div className="box-footer box-footer-clean clearfix">footer</div>
-          </div>
-        </div>
+    <ContentWrapper title="Categories">
+      <div>
+        Header Controlls
       </div>
-    </Body>
-  );
+
+      <div className="box box-clean">
+        <div className="box-header">header</div>
+        <div className="box-body">this is the Categories</div>
+        <div className="box-footer box-footer-clean clearfix">footer</div>
+      </div>
+
+    </ContentWrapper>
+   );
 };
 
 export default Categories;

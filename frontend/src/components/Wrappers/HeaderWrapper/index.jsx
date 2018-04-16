@@ -1,11 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import NavbarLogo from '../NavbarLogo';
-import NavbarMenu from '../NavbarMenu';
-import NavbarToggle from '../NavbarToggle';
+import { NavbarLogo, NavbarMenu, NavbarToggle } from '../../Header';
 
 
-const NavbarWrapper = function NavbarWrapper(props) {
+const HeaderWrapper = function HeaderWrapper(props) {
   return (
     <header className="main-header">
       <NavbarLogo />
@@ -19,9 +17,9 @@ const NavbarWrapper = function NavbarWrapper(props) {
   );
 };
 
-NavbarWrapper.propTypes = {
+HeaderWrapper.propTypes = {
   children: PropTypes.arrayOf(PropTypes.element).isRequired,
 };
 
 
-export default NavbarWrapper;
+export default HeaderWrapper;

@@ -197,3 +197,52 @@ html, body, main {
     position: relative;
     padding: 0;
 }
+
+.content-header > div {
+  height: auto;
+}
+
+h3 {
+  font-size: 20px;
+}
+
+.btn-default {
+    color: #5d6c7c !important;
+    background-color: #fff !important;
+    border-color: #ddd !important;
+}
+.text-danger {
+    color: #f86b4f !important;
+}
+
+.text-success {
+    color: #00b49c !important;
+}
+
+.pl-15, .pl-md {
+    padding-left: 15px !important;
+}
+
+.pr-15, .pr-md {
+    padding-right: 15px !important;
+}
+
+.pa-15, .pa-md {
+    padding: 15px !important;
+}
+
+.nav-tabs-custom > .nav-tabs > li.active {
+    border-top-color: #f86b4f;
+}
+
+.form-row {
+    margin-right: 0;
+    margin-left: 0;
+}
+
+.content-wrapper {
+    -webkit-transition: min-height 0.2s ease-in-out;
+    -o-transition: min-height 0.2s ease-in-out;
+    transition: min-height 0.2s ease-in-out;
+    min-height: 469px;
+}

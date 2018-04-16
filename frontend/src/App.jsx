@@ -1,17 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import NavbarWrapper from './components/NavBar/NavbarWrapper';
-
-import {
-  Profile,
-  Settings,
-  Notifications,
-} from './containers/NavBar';
-
-import SideBarWrapper from './components/SideBar';
+import { AppWrapper, HeaderWrapper, SideBarWrapper, ControlSideBarWrapper } from './components/Wrappers';
+import { Profile, Notifications, ControlSideBarButton } from './components/Header';
+import { ControlSideBarMenu } from './components/ControlSideBar';
+import { SideBarMenu } from './components/SideBar';
 import Footer from './components/Footer';
-import { MenuTree } from './containers/SideBar';
+
+
 
 
 const App = function App(props) {
@@ -19,24 +15,25 @@ const App = function App(props) {
     activeItem: ActiveItem,
   } = props;
   return (
-    <div className="wrapper">
-      <NavbarWrapper>
+    <AppWrapper>
+      <HeaderWrapper>
         <Notifications />
         <Profile />
-        <li>
-          <a href="#" data-toggle="control-sidebar"><i className="fa fa-cog" /></a>
-        </li>
-      </NavbarWrapper>
+        <ControlSideBarButton />
+      </HeaderWrapper>
 
-      <SideBarWrapper Menu={MenuTree} activeItem={ActiveItem} />
-
+      <SideBarWrapper>
+        <SideBarMenu activeItem={ActiveItem} />
+      </SideBarWrapper>
       {props.children}
-
+      <div className='clearfix' />
       <Footer />
 
-      <Settings activeItem={ActiveItem} />
+      <ControlSideBarWrapper>
+        <ControlSideBarMenu activeItem={ActiveItem} />
+      </ControlSideBarWrapper>
       <div className="control-sidebar-bg" />
-    </div>
+    </AppWrapper>
   );
 };
 

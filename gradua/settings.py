@@ -47,14 +47,17 @@ INSTALLED_APPS = [
     'django.contrib.auth',
 
     'django_countries',
-    'webpack_loader',
+    'graphene_django',
+    'rolepermissions',
     'rest_framework',
+    'webpack_loader',
     'corsheaders',
     'guardian',
     'taggit',
     'knox',
 
     'authentication',
+    'roles',
 ]
 
 AUTHENTICATION_BACKENDS = (
@@ -144,6 +147,10 @@ IPWARE_PRIVATE_IP_PREFIX = (
        'fe80:',  # link-local unicast
        'ff00:',  # IPv6 multicast
    )
+
+GRAPHENE = {
+    'SCHEMA': 'gradua.schema.schema'
+}
 
 # CORS_ORIGIN_ALLOW_ALL = True
 WSGI_APPLICATION = 'gradua.wsgi.application'

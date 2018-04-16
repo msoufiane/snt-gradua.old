@@ -20,7 +20,7 @@ import Notifications from '../screens/Notifications';
 import Categories from '../screens/Categories';
 import Configuration from '../screens/Configuration';
 import Users from '../screens/Users';
-import Roles from '../screens/Roles';
+import { createRole, listRoles } from '../screens/Roles';
 import Webhooks from '../screens/Webhooks';
 import CustomFields from '../screens/CustomFields';
 
@@ -53,7 +53,10 @@ const Routes = function Routes() {
       <AuthenticatedRoute exact path="/categories" component={Categories}  activeMenuItem='categories' />
       <AuthenticatedRoute exact path="/configuration" component={Configuration}  activeMenuItem='configuration' />
       <AuthenticatedRoute exact path="/users" component={Users}  activeMenuItem='users' />
-      <AuthenticatedRoute exact path="/roles" component={Roles}  activeMenuItem='roles' />
+
+      <AuthenticatedRoute exact path="/roles" component={listRoles}  activeMenuItem='roles' />
+      <AuthenticatedRoute exact path="/roles/new" component={createRole}  activeMenuItem='roles' />
+
       <AuthenticatedRoute exact path="/webhooks" component={Webhooks}  activeMenuItem='webhooks' />
       <AuthenticatedRoute exact path="/custom-fields" component={CustomFields}  activeMenuItem='custom-fields' />
 
