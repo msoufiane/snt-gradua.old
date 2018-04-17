@@ -8,6 +8,7 @@ django-countries==5.1.1
 django-toolbelt==0.0.1
 django-guardian==1.4.9
 dj-database-url==0.4.2
+graphene-django==2.0.0
 django-taggit==0.22.2
 django-filter==1.1.0
 virtualenv==15.1.0
