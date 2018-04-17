@@ -1,6 +1,6 @@
 import reduxImmutableStateInvariant from 'redux-immutable-state-invariant';
 import { createStore, compose, applyMiddleware } from 'redux';
-import { ApolloClient, ApolloProvider } from 'react-apollo';
+// import { ApolloClient, ApolloProvider } from 'react-apollo';
 import createHistory from 'history/createBrowserHistory';
 import { routerMiddleware } from 'react-router-redux';
 import createSagaMiddleware from 'redux-saga';
@@ -18,7 +18,7 @@ function configureStoreProd() {
   const enhancers = applyMiddleware(sagaMiddleware, reactRouterMiddleware);
 
   const persistedState = loadState();
-  const client = new ApolloClient();
+  // const client = new ApolloClient();
 
   const store = createStore(
     rootReducer,
@@ -41,7 +41,7 @@ function configureStoreProd() {
 function configureStoreDev() {
   const sagaMiddleware = createSagaMiddleware();
   const reactRouterMiddleware = routerMiddleware(history);
-  const client = new ApolloClient();
+  // const client = new ApolloClient();
 
   const enhancers = applyMiddleware(
     sagaMiddleware,
