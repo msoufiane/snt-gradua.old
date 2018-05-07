@@ -1,11 +1,13 @@
 /* eslint-disable jsx-a11y/label-has-for */
 
 import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { reduxForm, Field, SubmissionError } from 'redux-form';
-import PropTypes from 'prop-types';
 
 import { authRequest } from '../../../actions/login';
+import permissionsQuery from '../../../gql/queries/roles/permissionsQuery/index';
+
 
 class CreateRoleForm extends React.Component {
   rolenameInput = ({ input, meta: { touched, error }, ...custom }) => {
@@ -60,6 +62,10 @@ class CreateRoleForm extends React.Component {
 
   render() {
     const { handleSubmit } = this.props;
+
+    // eslint-disable-next-line no-console
+    // console.log(permissionsList);
+
     return (
       <form onSubmit={handleSubmit(this.submit)}>
         <div className="tab-content">
@@ -106,36 +112,38 @@ class CreateRoleForm extends React.Component {
           </div>
 
           <div className="tab-pane" id="new_role_permissions">
-            <div>
-              <div className="box-body">
+            <div className="box-body">
+              <permissionsQuery>
+                {({allPermissions}) => allPermissions.map((permission) => (
+                  <div>
+                    <div className="col-md-5">
+                      <div className="pb-md">
+                        <ul className="list-group list-group-tabs">
+                          <li className="list-group-item active">permission.model</li>
+                          <li className="list-group-item">Mghanen</li>
+                        </ul>
+                      </div>
+                    </div>
 
-                <div className="col-md-5">
-                  <div className="pb-md">
-                    <ul className="list-group list-group-tabs">
-                      <li className="list-group-item active">Soufiane</li>
-                      <li className="list-group-item">Mghanen</li>
-                    </ul>
-                  </div>
-                </div>
-
-                <div className="col-md-7">
-                  <div className="tab-content">
-                    <div role="tabpanel" className="tab-pane active">
-                      <div className="row">
-                        <div className="form-group col-xs-12">
-                          <label>Soufiane</label>
-                          <div className="choice-wrapper">
-                            <div className="checkboxm">
-                              <Field name="password" component={this.passwordInput} />
+                    <div className="col-md-7">
+                      <div className="tab-content">
+                        <div role="tabpanel" className="tab-pane active">
+                          <div className="row">
+                            <div className="form-group col-xs-12">
+                              <label>Soufiane</label>
+                              <div className="choice-wrapper">
+                                <div className="checkboxm">
+                                  <Field name="password" component={this.passwordInput} />
+                                </div>
+                              </div>
                             </div>
                           </div>
                         </div>
                       </div>
                     </div>
                   </div>
-                </div>
-
-              </div>
+                  ))}
+              </permissionsQuery>
             </div>
 
             <Field name="serverError" component={this.serverError} />
@@ -150,6 +158,7 @@ class CreateRoleForm extends React.Component {
 CreateRoleForm.propTypes = {
   handleLogin: PropTypes.func.isRequired,
   handleSubmit: PropTypes.func.isRequired,
+  // eslint-disable-next-line react/forbid-prop-types
 };
 
 const validate = (values) => {

@@ -11,12 +11,6 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { ConnectedRouter } from 'react-router-redux';
 
-import { HttpLink } from 'apollo-link-http';
-import { ApolloClient } from 'apollo-client';
-import { ApolloProvider } from 'react-apollo';
-import { InMemoryCache } from 'apollo-cache-inmemory';
-import fetch from 'node-fetch';
-
 import registerServiceWorker from './registerServiceWorker';
 import configureStore, { history } from './store/configureStore';
 
@@ -33,23 +27,12 @@ require('admin-lte');
 
 const store = configureStore();
 
-const client = new ApolloClient({
-  // By default, this client will send queries to the
-  //  `/graphql` endpoint on the same host
-  // Pass the configuration option { uri: YOUR_GRAPHQL_API_URL } to the `HttpLink` to connect
-  // to a different host
-  link: new HttpLink({ uri: 'http://localhost:8000/graphql', fetch: fetch }),
-  cache: new InMemoryCache(),
-});
-
 ReactDOM.render(
-  <ApolloProvider client={client}>
-    <Provider store={store}>
-      <ConnectedRouter history={history}>
-        <Routes />
-      </ConnectedRouter>
-    </Provider>
-  </ApolloProvider>,
+  <Provider store={store}>
+    <ConnectedRouter history={history}>
+      <Routes />
+    </ConnectedRouter>
+  </Provider>,
   document.getElementById('wrapper'),
 );
 

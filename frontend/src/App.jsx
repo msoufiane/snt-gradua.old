@@ -8,8 +8,6 @@ import { SideBarMenu } from './components/SideBar';
 import Footer from './components/Footer';
 
 
-
-
 const App = function App(props) {
   const {
     activeItem: ActiveItem,

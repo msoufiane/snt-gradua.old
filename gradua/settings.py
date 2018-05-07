@@ -31,7 +31,6 @@ TEMPLATES = [
     },
 ]
 
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -48,7 +47,6 @@ INSTALLED_APPS = [
 
     'django_countries',
     'graphene_django',
-    'rolepermissions',
     'rest_framework',
     'webpack_loader',
     'corsheaders',
@@ -57,6 +55,7 @@ INSTALLED_APPS = [
     'knox',
 
     'authentication',
+    'permissions',
     'roles',
 ]
 
@@ -151,7 +150,6 @@ IPWARE_PRIVATE_IP_PREFIX = (
 GRAPHENE = {
     'SCHEMA': 'gradua.schema.schema'
 }
-
 # CORS_ORIGIN_ALLOW_ALL = True
 WSGI_APPLICATION = 'gradua.wsgi.application'
 ROOT_URLCONF = 'gradua.urls'

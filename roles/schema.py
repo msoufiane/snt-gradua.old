@@ -1,17 +1,15 @@
+from graphene_django.types import DjangoObjectType
+from .models import Roles
 import graphene
 
-from graphene_django.types import DjangoObjectType
-from django.contrib.auth.models import Permission
-# from .models import Family, Location, Product, Transaction
 
-
-class PermissionType(DjangoObjectType):
+class RolesType(DjangoObjectType):
     class Meta:
-        model = Permission
+        model = Roles
 
 
-class Query(graphene.AbstractType):
-    all_permissions = graphene.List(PermissionType)
+class Query(object):
+    all_roles = graphene.List(RolesType)
 
-    def resolve_all_permissions(self, args, context, info):
-        return Permission.objects.all()
+    def resolve_all_roles(self, args):
+        return Roles.objects.all()
