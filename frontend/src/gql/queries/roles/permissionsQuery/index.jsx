@@ -1,7 +1,6 @@
 import React from "react";
 import gql from "graphql-tag";
-import PropTypes from "prop-types";
-import { graphql } from 'react-apollo';
+import {Query} from 'react-apollo';
 
 const GET_PERMISSIONS = gql`query{
   allPermissions{
@@ -16,18 +15,79 @@ const GET_PERMISSIONS = gql`query{
   }
 }`;
 
+export default () => (
+  <Query query={GET_PERMISSIONS}>
+    {({loading, error, data: {allPermissions}}) => {
+      if (loading) return <p>Loading ...</p>;
+      if (error) return <p>Error ...</p>;
 
-class permissionsQuery extends React.Component {
-  render() {
-    // eslint-disable-next-line no-console
-    console.log(this.props.data);
-    return this.props.children(this.props.data);
-  }
-}
+      return (
+        <div>
+          <div className="col-md-5">
+            <div className="pb-md">
+              <ul className="list-group list-group-tabs">
+                {allPermissions.map(permission => (
+                  <li key={permission.id} className="list-group-item">
+                    {permission.model} Permissions (0 / {permission.permissionSet.length})
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
 
-permissionsQuery.propTypes = {
-  children: PropTypes.func.isRequired,
-  data: PropTypes.func.isRequired,
-};
+          <div className="col-md-7">
+            <div className="tab-content">
+              {allPermissions.map(permission => (
+                <div key={permission.id} role="tabpanel" className="tab-pane active">
+                  {permission.permissionSet.map(ps => (
+                    <div key={ps.id} className="row">
+                      <div className="form-group col-xs-12">
+                        <div className="choice-wrapper">
+                          <div className="checkbox">
+                            <label htmlFor="role_name">
+                              <input name="role_name" type="checkbox" />
+                              {ps.name}
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      );
+    }}
+  </Query>
+);
 
-export default graphql(GET_PERMISSIONS)(permissionsQuery);
+/*
+          <div>
+            <div className="col-md-5">
+              <div className="pb-md">
+                <ul className="list-group list-group-tabs">
+                  <li className="list-group-item active">permission.model</li>
+                  <li className="list-group-item">Mghanen</li>
+                </ul>
+              </div>
+            </div>
+
+            <div className="col-md-7">
+              <div className="tab-content">
+                <div role="tabpanel" className="tab-pane active">
+                  <div className="row">
+                    <div className="form-group col-xs-12">
+                      <pre>Soufiane</pre>
+                      <div className="choice-wrapper">
+                        <div className="checkboxm">
+                          <input name="password"/>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>*/

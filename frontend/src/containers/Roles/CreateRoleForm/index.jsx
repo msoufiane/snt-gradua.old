@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 import { reduxForm, Field, SubmissionError } from 'redux-form';
 
 import { authRequest } from '../../../actions/login';
-import permissionsQuery from '../../../gql/queries/roles/permissionsQuery/index';
+import PermissionsQuery from '../../../gql/queries/roles/permissionsQuery';
 
 
 class CreateRoleForm extends React.Component {
@@ -71,7 +71,6 @@ class CreateRoleForm extends React.Component {
         <div className="tab-content">
 
           <div className="tab-pane active" id="new_role_details">
-
             <div className="row form-row">
               <div className="col-md-6">
                 <div className="row form-row">
@@ -113,37 +112,7 @@ class CreateRoleForm extends React.Component {
 
           <div className="tab-pane" id="new_role_permissions">
             <div className="box-body">
-              <permissionsQuery>
-                {({allPermissions}) => allPermissions.map((permission) => (
-                  <div>
-                    <div className="col-md-5">
-                      <div className="pb-md">
-                        <ul className="list-group list-group-tabs">
-                          <li className="list-group-item active">permission.model</li>
-                          <li className="list-group-item">Mghanen</li>
-                        </ul>
-                      </div>
-                    </div>
-
-                    <div className="col-md-7">
-                      <div className="tab-content">
-                        <div role="tabpanel" className="tab-pane active">
-                          <div className="row">
-                            <div className="form-group col-xs-12">
-                              <label>Soufiane</label>
-                              <div className="choice-wrapper">
-                                <div className="checkboxm">
-                                  <Field name="password" component={this.passwordInput} />
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  ))}
-              </permissionsQuery>
+              <PermissionsQuery />
             </div>
 
             <Field name="serverError" component={this.serverError} />
