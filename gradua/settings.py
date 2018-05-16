@@ -4,8 +4,8 @@ from datetime import timedelta
 ENVIRONMENT = os.environ.get('DJANGO_ENV', 'dev')
 SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'DJANGO_SECRET_KEY_NOT_FOUND')
 ALLOWED_HOSTS = ['*'] if ENVIRONMENT == 'dev' else ['gradua.sentad.com']
-DEBUG = ENVIRONMENT == 'dev'
-
+# DEBUG = ENVIRONMENT == 'dev'
+DEBUG = True
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 
