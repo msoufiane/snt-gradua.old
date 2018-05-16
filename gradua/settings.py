@@ -95,7 +95,7 @@ REST_KNOX = {
 
 WEBPACK_LOADER = {
     'DEFAULT': {
-            'BUNDLE_DIR_NAME': 'bundles/',
+            'BUNDLE_DIR_NAME': '/',
             'STATS_FILE': os.path.join(BASE_DIR, 'webpack-stats.%s.json' % ENVIRONMENT),
         }
 }
