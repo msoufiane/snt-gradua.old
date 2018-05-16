@@ -16,5 +16,9 @@
   "bugs": {
     "url": "https://github.com/msoufiane/snt-gradua/issues"
   },
-  "homepage": "https://github.com/msoufiane/snt-gradua#readme"
+    "engines": {
+    "npm": "5.7.1",
+    "node": "9.5.0"
+  },
+  "homepage": "http://gradua.sentad.com/"
 }

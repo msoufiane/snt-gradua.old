@@ -61,5 +61,4 @@ ReactDOM.render(
   document.getElementById('wrapper'),
 );
 
-
-registerServiceWorker();
+if (window.location.protocol === 'https:') { registerServiceWorker() }
