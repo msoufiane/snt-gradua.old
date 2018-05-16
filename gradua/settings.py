@@ -140,7 +140,7 @@ IPWARE_PRIVATE_IP_PREFIX = (
        '255.255.255.',  # reserved for broadcast
    ) + (
        '::',  # Unspecified address
-       '::ffff:', '2001:10:', '2001:20:'  # messages to software
+       '::ffff:', '2001:10:', '2001:20:'  # messages to softwarewr
        '2001:db8:',  # reserved for documentation and example code
        'fc00:',  # IPv6 private block
        'fe80:',  # link-local unicast
