@@ -4,7 +4,7 @@
 
 const authUserModel = {
   id: null,
-  token: 'sw',
+  token: '',
   username: 'username',
   email: '',
   first_name: 'firstname',

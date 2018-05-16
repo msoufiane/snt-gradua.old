@@ -3,21 +3,21 @@
  * Created by soufiaane on 7/14/17.
  */
 
-import React from 'react';
-import { connect } from 'react-redux';
-import { push } from 'react-router-redux';
+import React                                 from 'react';
+import { connect }                           from 'react-redux';
+import { push }                              from 'react-router-redux';
 import { reduxForm, Field, SubmissionError } from 'redux-form';
-import PropTypes from 'prop-types';
+import PropTypes                             from 'prop-types';
 
 import { authRequest } from '../../../actions/login';
 
 class LoginForm extends React.Component {
   componentWillUpdate(nextProps) {
-    const { redirectAfterLogin } = this.props;
+    const {redirectAfterLogin} = this.props;
     if (nextProps.submitSucceeded) redirectAfterLogin('/');
   }
 
-  usernameInput = ({ input, meta: { touched, error }, ...custom }) => {
+  usernameInput = ({input, meta: {touched, error}, ...custom}) => {
     const hasError = touched && error !== undefined;
     return (
       <div className={hasError ? 'form-group has-feedback has-error' : 'form-group has-feedback'}>
@@ -28,7 +28,7 @@ class LoginForm extends React.Component {
     );
   };
 
-  passwordInput = ({ input, meta: { touched, error }, ...custom }) => {
+  passwordInput = ({input, meta: {touched, error}, ...custom}) => {
     const hasError = touched && error !== undefined;
     return (
       <div className={hasError ? 'form-group has-feedback has-error' : 'form-group has-feedback'}>
@@ -39,16 +39,16 @@ class LoginForm extends React.Component {
     );
   };
 
-  serverError = ({ meta: { error } }) => (
+  serverError = ({meta: {error}}) => (
     <div className={error !== undefined ? 'form-group has-feedback has-error' : 'form-group has-feedback'}>
       {error !== undefined && <span className="help-block"> {error} </span>}
     </div>
   );
 
   submit = (props, credentials) => {
-    const { handleLogin } = props;
+    const {handleLogin} = props;
     return new Promise((resolve, reject) => {
-      handleLogin({ ...credentials, resolve, reject });
+      handleLogin({...credentials, resolve, reject});
     }).catch((error) => {
       throw new SubmissionError(error);
     });
@@ -56,7 +56,7 @@ class LoginForm extends React.Component {
 
 
   render() {
-    const { handleSubmit } = this.props;
+    const {handleSubmit} = this.props;
     return (
       <form name="loginForm" onSubmit={handleSubmit(this.submit)}>
         <Field name="username" component={this.usernameInput} />
@@ -82,7 +82,7 @@ LoginForm.propTypes = {
 };
 
 const validate = (values) => {
-  const { username, password } = values;
+  const {username, password} = values;
   const errors = {};
   if (!username || username.trim() === '') {
     errors.username = 'Username field is required !';
@@ -98,4 +98,4 @@ const mapDispatchToProps = dispatch => ({
   handleLogin: payload => dispatch(authRequest(payload)),
 });
 
-export default reduxForm({ form: 'login', validate })(connect(null, mapDispatchToProps)(LoginForm));
+export default reduxForm({form: 'login', validate})(connect(null, mapDispatchToProps)(LoginForm));
