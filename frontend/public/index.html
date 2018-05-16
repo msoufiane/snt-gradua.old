@@ -6,8 +6,13 @@
         <title>SentAd Media - Gradua| Home Page</title>
         <!-- Tell the browser to be responsive to screen width -->
         <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-        <!--<link rel="manifest" href="http://localhost:8000/manifest.json">-->
-        <link rel="shortcut icon" href="favicon.png">
+        {% if DEV_MODE %}
+            <link rel="manifest" href="http://localhost:8000/static/bundles/manifest.json">
+            <link rel="shortcut icon" href="http://localhost:8000/static/bundles/favicon.png">
+        {% else %}
+            <link rel="manifest" href="%PUBLIC_URL%/manifest.json">
+            <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.png">
+        {% endif %}
     </head>
 
     <body class="hold-transition skin-green fixed sidebar-mini">
