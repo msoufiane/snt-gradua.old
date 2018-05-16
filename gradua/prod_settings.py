@@ -16,7 +16,7 @@ MIDDLEWARE = [
 
 CORS_ORIGIN_ALLOW_ALL = True
 
-TEMPLATES[0]['DIRS'] = [os.path.join(BASE_DIR, "assets/bundles"), ]
+TEMPLATES[0]['DIRS'] = [os.path.join(BASE_DIR, "assets"), ]
 DATABASES['default'].update(dj_database_url.config(conn_max_age=500))
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
