@@ -1,6 +1,6 @@
-import React from "react";
-import gql from "graphql-tag";
-import {Query} from 'react-apollo';
+import React     from "react";
+import { Query } from 'react-apollo';
+import gql       from "graphql-tag";
 
 const GET_PERMISSIONS = gql`query{
   allPermissions{
@@ -64,30 +64,30 @@ export default () => (
 );
 
 /*
-          <div>
-            <div className="col-md-5">
-              <div className="pb-md">
-                <ul className="list-group list-group-tabs">
-                  <li className="list-group-item active">permission.model</li>
-                  <li className="list-group-item">Mghanen</li>
-                </ul>
-              </div>
-            </div>
+ <div>
+ <div className="col-md-5">
+ <div className="pb-md">
+ <ul className="list-group list-group-tabs">
+ <li className="list-group-item active">permission.model</li>
+ <li className="list-group-item">Mghanen</li>
+ </ul>
+ </div>
+ </div>
 
-            <div className="col-md-7">
-              <div className="tab-content">
-                <div role="tabpanel" className="tab-pane active">
-                  <div className="row">
-                    <div className="form-group col-xs-12">
-                      <pre>Soufiane</pre>
-                      <div className="choice-wrapper">
-                        <div className="checkboxm">
-                          <input name="password"/>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>*/
+ <div className="col-md-7">
+ <div className="tab-content">
+ <div role="tabpanel" className="tab-pane active">
+ <div className="row">
+ <div className="form-group col-xs-12">
+ <pre>Soufiane</pre>
+ <div className="choice-wrapper">
+ <div className="checkboxm">
+ <input name="password"/>
+ </div>
+ </div>
+ </div>
+ </div>
+ </div>
+ </div>
+ </div>
+ </div>*/

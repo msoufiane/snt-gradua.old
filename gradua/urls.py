@@ -1,6 +1,6 @@
 from django.views.generic import TemplateView
-from django.conf.urls import include, url
 from graphene_django.views import GraphQLView
+from django.conf.urls import include, url
 import os
 
 urlpatterns = [

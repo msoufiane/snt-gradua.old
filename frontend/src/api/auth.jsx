@@ -5,15 +5,15 @@
 import axios from 'axios';
 
 export const authenticate = (username, password) => {
-  axios.post('http://localhost:8000/api/auth/login/', { username, password })
+  axios.post('http://localhost:8000/api/auth/login/', {username, password})
     .then(response => response.data).catch((error) => {
-      throw error;
-    });
+    throw error;
+  });
 };
 
 // eslint-disable-next-line consistent-return
 export const logout = () => {
-  const request = axios.create({ baseURL: 'http://localhost:8000/api/auth/logout/' });
+  const request = axios.create({baseURL: 'http://localhost:8000/api/auth/logout/'});
   try {
     const serializedState = sessionStorage.getItem('state');
     if (serializedState !== null) {

@@ -1,11 +1,11 @@
-import React from 'react';
+import React     from 'react';
 import PropTypes from 'prop-types';
 
 import { AppWrapper, HeaderWrapper, SideBarWrapper, ControlSideBarWrapper } from './components/Wrappers';
-import { Profile, Notifications, ControlSideBarButton } from './components/Header';
-import { ControlSideBarMenu } from './components/ControlSideBar';
-import { SideBarMenu } from './components/SideBar';
-import Footer from './components/Footer';
+import { Profile, Notifications, ControlSideBarButton }                     from './components/Header';
+import { ControlSideBarMenu }                                               from './components/ControlSideBar';
+import { SideBarMenu }                                                      from './components/SideBar';
+import Footer                                                               from './components/Footer';
 
 
 const App = function App(props) {

@@ -2,9 +2,9 @@
  * Created by soufiaane on 7/8/17.
  */
 
-import { combineReducers } from 'redux';
-import { routerReducer } from 'react-router-redux';
+import { routerReducer }          from 'react-router-redux';
 import { reducer as formReducer } from 'redux-form';
+import { combineReducers }        from 'redux';
 
 import authUserReducer from './authUser';
 

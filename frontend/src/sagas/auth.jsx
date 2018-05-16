@@ -2,20 +2,14 @@
  * Created by soufiaane on 7/21/17.
  */
 
-import { takeEvery, call, put } from 'redux-saga/effects';
-import { push } from 'react-router-redux';
-import { AUTH_REQUEST, LOGOUT_REQUEST } from '../constants/session';
+import { takeEvery, call, put }                    from 'redux-saga/effects';
+import { push }                                    from 'react-router-redux';
+import { AUTH_REQUEST, LOGOUT_REQUEST }            from '../constants/session';
 import { authSuccess, logoutSuccess, logoutError } from '../actions/login';
-import { authenticate, logout } from '../api/auth';
+import { authenticate, logout }                    from '../api/auth';
 
 
-function* watchAuthRequest({
-  username,
-  password,
-  resolve,
-  reject,
-  dispatch,
-}) {
+function* watchAuthRequest({username, password, resolve, reject, dispatch}) {
   try {
     const result = yield call(authenticate, username, password, dispatch);
     yield call(resolve);
@@ -23,11 +17,11 @@ function* watchAuthRequest({
     yield put(push('/'));
   } catch (error) {
     // TODO treat error separatly
-    yield call(reject, { serverError: error.response ? error.response.data.message : 'Something bad happend !' });
+    yield call(reject, {serverError: error.response ? error.response.data.message : 'Something bad happend !'});
   }
 }
 
-function* watchLogoutRequest({ dispatch }) {
+function* watchLogoutRequest({dispatch}) {
   try {
     const result = yield call(logout, dispatch);
     yield put(logoutSuccess(result));

@@ -1,13 +1,13 @@
-import reduxImmutableStateInvariant from 'redux-immutable-state-invariant';
+import reduxImmutableStateInvariant              from 'redux-immutable-state-invariant';
 import { createStore, compose, applyMiddleware } from 'redux';
 // import { ApolloClient, ApolloProvider } from 'react-apollo';
-import createHistory from 'history/createBrowserHistory';
-import { routerMiddleware } from 'react-router-redux';
-import createSagaMiddleware from 'redux-saga';
+import createHistory                             from 'history/createBrowserHistory';
+import { routerMiddleware }                      from 'react-router-redux';
+import createSagaMiddleware                      from 'redux-saga';
 
 import { loadState, saveState } from './localStorage';
-import rootReducer from '../reducers';
-import rootSaga from '../sagas';
+import rootReducer              from '../reducers';
+import rootSaga                 from '../sagas';
 
 export const history = createHistory();
 

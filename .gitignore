@@ -101,7 +101,7 @@ ENV/
 # mypy
 .mypy_cache/
 db.sqlite3
-staticfiles
+staticfiles/
 .idea/
 frontend/node_modules/
 webpack-stats.prod.json

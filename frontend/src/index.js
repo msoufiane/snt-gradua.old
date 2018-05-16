@@ -6,22 +6,22 @@ import 'bootstrap/dist/css/bootstrap.css';
 import 'admin-lte/dist/css/AdminLTE.css';
 import $ from 'jquery';
 
-import React from 'react';
-import ReactDOM from 'react-dom';
-import {Provider} from 'react-redux';
-import {ConnectedRouter} from 'react-router-redux';
+import React               from 'react';
+import ReactDOM            from 'react-dom';
+import { Provider }        from 'react-redux';
+import { ConnectedRouter } from 'react-router-redux';
 
-import fetch from "node-fetch";
+import fetch  from "node-fetch";
 import cookie from "react-cookies";
 
-import { ApolloLink } from "apollo-link";
-import { HttpLink } from 'apollo-link-http';
-import { ApolloClient } from "apollo-client";
+import { ApolloLink }     from "apollo-link";
+import { HttpLink }       from 'apollo-link-http';
+import { ApolloClient }   from "apollo-client";
 import { ApolloProvider } from "react-apollo";
-import { InMemoryCache } from 'apollo-cache-inmemory';
+import { InMemoryCache }  from 'apollo-cache-inmemory';
 
-import registerServiceWorker from './registerServiceWorker';
-import configureStore, {history} from './store/configureStore';
+import registerServiceWorker       from './registerServiceWorker';
+import configureStore, { history } from './store/configureStore';
 
 import Routes from './routes/index';
 import './index.css';
@@ -61,4 +61,6 @@ ReactDOM.render(
   document.getElementById('wrapper'),
 );
 
-if (window.location.protocol === 'https:') { registerServiceWorker() }
+if (window.location.protocol === 'https:') {
+  registerServiceWorker()
+}
