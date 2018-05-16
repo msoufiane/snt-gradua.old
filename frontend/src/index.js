@@ -36,8 +36,9 @@ require('slimscroll');
 require('admin-lte');
 
 const store = configureStore();
+const GRAPHQL_URI = process.env.NODE_ENV === 'production' ? '/graphql' : 'http://localhost:8000/graphql';
 
-const httpLink = new HttpLink({uri: 'http://localhost:8000/graphql', fetch: fetch, credentials: 'same-origin'});
+const httpLink = new HttpLink({uri: GRAPHQL_URI, fetch: fetch, credentials: 'same-origin'});
 
 const authMiddleware = new ApolloLink((operation, forward) => {
   operation.setContext({headers: {'X-CSRFToken': cookie.load('csrftoken') || null}});

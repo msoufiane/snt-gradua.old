@@ -1,10 +1,12 @@
 {
   "engines": {
-    "npm": "5.7.1"
+    "npm": "5.7.1",
+    "node": "9.5.0"
   },
   "name": "frontend",
   "version": "0.1.0",
   "private": true,
+  "homepage": "http://gradua.sentad.com/",
   "dependencies": {
     "admin-lte": "2.4.2",
     "apollo-boost": "^0.1.6",
