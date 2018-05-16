@@ -3,8 +3,8 @@ import PropTypes from "prop-types";
 import {connect} from "react-redux";
 import { submit } from 'redux-form';
 
-import { history } from '../../../store/configureStore';
-import { ContentWrapper } from '../../../components/Wrappers';
+import { history } from '../../../App';
+import { ContentWrapper } from '../../../Layout/components/Wrappers';
 import CreateRoleForm from '../../../containers/Roles/CreateRoleForm';
 
 const newRole = function ({ handleSubmit }) {

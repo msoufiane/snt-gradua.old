@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { reduxForm, Field, SubmissionError } from 'redux-form';
 
-import { authRequest } from '../../../actions/login';
+import { authRequestAction } from '../../../Authentication/actions/login';
 import PermissionsQuery from '../../../gql/queries/roles/permissionsQuery';
 
 
@@ -143,7 +143,7 @@ const validate = (values) => {
 };
 
 const mapDispatchToProps = dispatch => ({
-  handleLogin: payload => dispatch(authRequest(payload)),
+  handleLogin: payload => dispatch(authRequestAction(payload)),
 });
 
 const formContainer = connect(null, mapDispatchToProps)(CreateRoleForm);

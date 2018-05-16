@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ContentWrapper } from '../../../components/Wrappers';
+import { ContentWrapper } from '../../../Layout/components/Wrappers';
 
 const Roles = function Roles() {
   return (

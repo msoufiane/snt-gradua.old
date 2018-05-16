@@ -20,10 +20,9 @@ import { ApolloClient }   from "apollo-client";
 import { ApolloProvider } from "react-apollo";
 import { InMemoryCache }  from 'apollo-cache-inmemory';
 
-import registerServiceWorker       from './registerServiceWorker';
-import configureStore, { history } from './store/configureStore';
+import { configureStore, history, Routes } from './App';
+import registerServiceWorker               from './registerServiceWorker';
 
-import Routes from './routes/index';
 import './index.css';
 
 
@@ -35,9 +34,7 @@ require('fastclick');
 require('slimscroll');
 require('admin-lte');
 
-const store = configureStore();
 const GRAPHQL_URI = process.env.NODE_ENV === 'production' ? '/graphql' : 'http://localhost:8000/graphql';
-
 const httpLink = new HttpLink({uri: GRAPHQL_URI, fetch: fetch, credentials: 'same-origin'});
 
 const authMiddleware = new ApolloLink((operation, forward) => {
@@ -49,6 +46,8 @@ const client = new ApolloClient({
   link: authMiddleware.concat(httpLink),
   cache: new InMemoryCache().restore(window.__APOLLO_STATE__)
 });
+
+const store = configureStore();
 
 ReactDOM.render(
   <ApolloProvider client={client}>

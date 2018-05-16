@@ -1,5 +1,5 @@
 import React from 'react';
-import { ContentWrapper } from '../../components/Wrappers';
+import { ContentWrapper } from '../../Layout/components/Wrappers';
 
 const Webhooks = function Webhooks() {
   return (
