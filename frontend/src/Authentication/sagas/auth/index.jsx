@@ -3,22 +3,18 @@
  */
 
 import { takeEvery, call, put } from 'redux-saga/effects';
-import { push }                 from 'react-router-redux';
 
 import { authenticate }      from '../../api/auth';
-import { authSuccessAction } from '../../actions/login';
+import { authSuccessAction, authErrorAction} from '../../actions/login';
 import { AUTH_REQUEST }      from '../../constants/session';
 
 
-function* watchAuthRequest({username, password, resolve, reject, dispatch}) {
+function* watchAuthRequest({username, password}) {
   try {
-    const result = yield call(authenticate, username, password, dispatch);
-    yield call(resolve);
+    const result = yield call(authenticate, username, password);
     yield put(authSuccessAction(result));
-    yield put(push('/'));
   } catch (error) {
-    // TODO treat error separatly
-    yield call(reject, {serverError: error.response ? error.response.data.message : 'Something bad happend !'});
+    yield put(authErrorAction(error));
   }
 }
 

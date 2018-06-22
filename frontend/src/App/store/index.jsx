@@ -1,8 +1,8 @@
-import reduxImmutableStateInvariant              from 'redux-immutable-state-invariant';
 import { createStore, compose, applyMiddleware } from 'redux';
 import createSagaMiddleware                      from 'redux-saga';
 import { routerMiddleware }                      from 'react-router-redux';
 import createHistory                             from 'history/createBrowserHistory';
+import reduxImmutableStateInvariant              from 'redux-immutable-state-invariant';
 
 import rootSaga                 from '../rootSaga';
 import rootReducer              from '../rootReducer';

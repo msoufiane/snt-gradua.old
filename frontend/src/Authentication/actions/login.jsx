@@ -9,7 +9,13 @@ export function authRequestAction(payload) {
 }
 
 export function authSuccessAction(response) {
-  return {type: sessionTypes.AUTH_SUCCESS, ...response};
+  //eslint-disable-next-line no-console
+  console.log('AUTH_SUCCESS : ', response);
+  return {type: sessionTypes.AUTH_SUCCESS, response};
+}
+
+export function authErrorAction(error) {
+  return {type: sessionTypes.AUTH_ERROR, error};
 }
 
 export function logoutRequestAction() {

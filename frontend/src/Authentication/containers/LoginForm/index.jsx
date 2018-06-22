@@ -7,7 +7,7 @@ import React     from 'react';
 import PropTypes from 'prop-types';
 
 import { connect }                           from 'react-redux';
-import { reduxForm, Field, SubmissionError } from 'redux-form';
+import { reduxForm, Field } from 'redux-form';
 import { push }                              from 'react-router-redux';
 
 import { authRequestAction } from '../../';
@@ -51,11 +51,9 @@ class LoginForm extends React.Component {
   submit = (credentials) => {
     const {handleLogin} = this.props;
 
-    return new Promise((resolve, reject) => {
-      handleLogin({...credentials, resolve, reject});
-    }).catch((error) => {
-      throw new SubmissionError(error);
-    });
+    //return new Promise((resolve, reject) => {
+      handleLogin({...credentials});
+
   };
 
 
