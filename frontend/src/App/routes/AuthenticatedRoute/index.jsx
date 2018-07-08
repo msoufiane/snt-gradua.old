@@ -35,7 +35,7 @@ AuthenticatedRoute.propTypes = {
 };
 
 const mapStateToProps = state => ({
-  isLogged: !!state.authUser.token,
+  isLogged: state.authentication.isAuthenticated,
 });
 
 export default connect(mapStateToProps, null)(AuthenticatedRoute);

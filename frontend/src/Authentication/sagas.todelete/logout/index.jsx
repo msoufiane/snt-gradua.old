@@ -1,7 +1,7 @@
 /**
  * Created by soufiaane on 7/21/17.
  */
-
+/*
 import { takeEvery, call, put }                    from 'redux-saga/effects';
 import { push }                                    from 'react-router-redux';
 import { LOGOUT_REQUEST }            from '../../constants/session';
@@ -22,3 +22,4 @@ function* watchLogoutRequest({dispatch}) {
 export default function* logoutSaga() {
   yield takeEvery(LOGOUT_REQUEST, watchLogoutRequest);
 }
+*/
