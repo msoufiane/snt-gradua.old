@@ -50,5 +50,5 @@ class LoginView(KnoxLoginView):
         else:
             return Response({
                 'status': 'Unauthorized',
-                'message': 'Invalid username and/or password.'
+                'message': 'Invalid username and/or password !'
             }, status=status.HTTP_406_NOT_ACCEPTABLE)

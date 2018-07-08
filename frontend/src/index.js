@@ -8,7 +8,7 @@ import $ from 'jquery';
 
 import React               from 'react';
 import ReactDOM            from 'react-dom';
-import { Provider }        from 'react-redux';
+import { Provider as ReduxProvider }        from 'react-redux';
 import { ConnectedRouter } from 'react-router-redux';
 
 import fetch  from "node-fetch";
@@ -38,7 +38,10 @@ const GRAPHQL_URI = process.env.NODE_ENV === 'production' ? '/graphql' : 'http:/
 const httpLink = new HttpLink({uri: GRAPHQL_URI, fetch: fetch, credentials: 'same-origin'});
 
 const authMiddleware = new ApolloLink((operation, forward) => {
-  operation.setContext({headers: {'X-CSRFToken': cookie.load('csrftoken') || null}});
+  operation.setContext({headers: {
+    'X-CSRFToken': cookie.load('csrftoken') || null,
+    'Authorization': 'Token %s' % localStorage.getItem('id_token') || null
+  }});
   return forward(operation);
 });
 
@@ -51,15 +54,15 @@ const store = configureStore();
 
 ReactDOM.render(
   <ApolloProvider client={client}>
-    <Provider store={store}>
+    <ReduxProvider store={store}>
       <ConnectedRouter history={history}>
         <Routes />
       </ConnectedRouter>
-    </Provider>
+    </ReduxProvider>
   </ApolloProvider>,
   document.getElementById('wrapper'),
 );
 
 if (window.location.protocol === 'https:') {
-  registerServiceWorker()
+  registerServiceWorker();
 }
