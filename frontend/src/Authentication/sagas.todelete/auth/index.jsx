@@ -1,7 +1,7 @@
 /**
  * Created by soufiaane on 7/21/17.
  */
-
+/*
 import { takeEvery, call, put } from 'redux-saga/effects';
 
 import { authenticate }      from '../../api/auth';
@@ -21,3 +21,4 @@ function* watchAuthRequest({username, password}) {
 export default function* authSaga() {
   yield takeEvery(AUTH_REQUEST, watchAuthRequest);
 }
+*/

@@ -1,21 +1,17 @@
 /* eslint-disable jsx-a11y/label-has-for */
-/**
- * Created by soufiaane on 7/14/17.
- */
 
 import React     from 'react';
 import PropTypes from 'prop-types';
 
-import { connect }                           from 'react-redux';
+import { connect }          from 'react-redux';
 import { reduxForm, Field } from 'redux-form';
-import { push }                              from 'react-router-redux';
+import { push }             from 'react-router-redux';
 
-import { authRequestAction } from '../../';
+import loginUser from '../../actions/login';
 
 class LoginForm extends React.Component {
   componentWillUpdate(nextProps) {
-    const {redirectAfterLogin} = this.props;
-    if (nextProps.submitSucceeded) redirectAfterLogin('/');
+    if (nextProps.isAuthenticated) this.props.redirectAfterLogin('/');
   }
 
   usernameInput = ({input, meta: {touched, error}, ...custom}) => {
@@ -40,25 +36,21 @@ class LoginForm extends React.Component {
     );
   };
 
-  serverError = ({meta: {error}}) => {
-    return (
-      <div className={error !== undefined ? 'form-group has-feedback has-error' : 'form-group has-feedback'}>
-        {error !== undefined && <span className="help-block"> {error} </span>}
+  serverError = () => {
+    const {errorMessage} = this.props;
+    return ( errorMessage &&
+      <div className='form-group has-feedback has-error'>
+        <span className="help-block"> {errorMessage} </span>
       </div>
     )
   };
 
   submit = (credentials) => {
-    const {handleLogin} = this.props;
-
-    //return new Promise((resolve, reject) => {
-      handleLogin({...credentials});
-
+    this.props.handleLogin({...credentials});
   };
 
-
   render() {
-    const {handleSubmit, submitting} = this.props;
+    const {handleSubmit, isFetching} = this.props;
     return (
       <form name="loginForm" onSubmit={handleSubmit(this.submit)}>
         <Field name="username" component={this.usernameInput} />
@@ -66,23 +58,16 @@ class LoginForm extends React.Component {
         <div className="row">
           <div className="col-xs-7" />
           <div className="col-xs-5">
-            <button className="btn btn-block btn-social btn-bitbucket btn-flat" type="submit" disabled={submitting}>
+            <button className="btn btn-block btn-social btn-bitbucket btn-flat" type="submit" disabled={isFetching}>
               <i className="fa fa-sign-in" />Sign In
             </button>
           </div>
         </div>
-        <Field name="serverError" component={this.serverError} />
+        {this.serverError()}
       </form>
     );
   }
 }
-
-LoginForm.propTypes = {
-  redirectAfterLogin: PropTypes.func.isRequired,
-  handleLogin: PropTypes.func.isRequired,
-  handleSubmit: PropTypes.func.isRequired,
-  submitting: PropTypes.bool.isRequired,
-};
 
 const validate = (values) => {
   const {username, password} = values;
@@ -96,9 +81,25 @@ const validate = (values) => {
   return errors;
 };
 
-const mapDispatchToProps = dispatch => ({
-  redirectAfterLogin: path => dispatch(push(path)),
-  handleLogin: payload => dispatch(authRequestAction(payload)),
+LoginForm.propTypes = {
+  redirectAfterLogin: PropTypes.func.isRequired,
+  handleSubmit: PropTypes.func.isRequired,
+  handleLogin: PropTypes.func.isRequired,
+  isFetching: PropTypes.bool.isRequired,
+  isAuthenticated: PropTypes.bool.isRequired,
+  // eslint-disable-next-line react/require-default-props
+  errorMessage: PropTypes.string,
+};
+
+const mapStateToProps = state => ({
+  isFetching: state.authentication.isFetching,
+  isAuthenticated: state.authentication.isAuthenticated,
+  errorMessage: state.authentication.errorMessage
 });
 
-export default reduxForm({form: 'login', validate})(connect(null, mapDispatchToProps)(LoginForm));
+const mapDispatchToProps = dispatch => ({
+  redirectAfterLogin: path => dispatch(push(path)),
+  handleLogin: payload => dispatch(loginUser(payload)),
+});
+
+export default reduxForm({form: 'login', validate})(connect(mapStateToProps, mapDispatchToProps)(LoginForm));

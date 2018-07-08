@@ -1,47 +1,39 @@
 import { createStore, compose, applyMiddleware } from 'redux';
-import createSagaMiddleware                      from 'redux-saga';
+import thunkMiddleware                           from 'redux-thunk'
 import { routerMiddleware }                      from 'react-router-redux';
 import createHistory                             from 'history/createBrowserHistory';
 import reduxImmutableStateInvariant              from 'redux-immutable-state-invariant';
 
-import rootSaga                 from '../rootSaga';
 import rootReducer              from '../rootReducer';
-import { loadState, saveState } from './localStorage';
+// import { loadState, saveState } from './localStorage';
 
 export const history = createHistory();
 
 function configureStoreProd() {
-  const sagaMiddleware = createSagaMiddleware();
   const reactRouterMiddleware = routerMiddleware(history);
-  const enhancers = applyMiddleware(sagaMiddleware, reactRouterMiddleware);
+  const enhancers = applyMiddleware(thunkMiddleware, reactRouterMiddleware);
 
-  const persistedState = loadState();
+  //const persistedState = loadState();
 
   const store = createStore(
     rootReducer,
-    persistedState,
+    //persistedState,
     compose(enhancers),
   );
 
   store.subscribe(() => {
-    const state = store.getState();
-    saveState({
-      authUser: state.authUser,
-    });
+    // const state = store.getState();
+    //saveState({authUser: state.authUser,});
   });
-
-  sagaMiddleware.run(rootSaga);
 
   return store;
 }
 
 function configureStoreDev() {
-  const sagaMiddleware = createSagaMiddleware();
   const reactRouterMiddleware = routerMiddleware(history);
-  // const client = new ApolloClient();
 
   const enhancers = applyMiddleware(
-    sagaMiddleware,
+    thunkMiddleware,
     reactRouterMiddleware,
     reduxImmutableStateInvariant(),
   );
@@ -51,22 +43,20 @@ function configureStoreDev() {
     // eslint-disable-next-line no-underscore-dangle
     window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ : compose;
 
-  const persistedState = loadState();
+  // const persistedState = loadState();
 
   const store = createStore(
     rootReducer,
-    persistedState,
+    // persistedState,
     composeSetup(enhancers),
   );
 
   store.subscribe(() => {
-    const state = store.getState();
+    /*const state = store.getState();
     saveState({
       authUser: state.authUser,
-    });
+    });*/
   });
-
-  sagaMiddleware.run(rootSaga);
 
   if (module.hot) {
     module.hot.accept('../rootReducer', () => {

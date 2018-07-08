@@ -7,17 +7,19 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Gravatar from 'react-gravatar';
 import PropTypes from 'prop-types';
-import { logoutRequestAction } from '../../../../Authentication';
+//import { logoutRequestAction } from '../../../../Authentication';
 
 
 class ProfileContainer extends Component {
   handleLogout(event) {
     event.preventDefault();
-    this.props.logout();
+    //this.props.logout();
   }
 
   render() {
     const { user } = this.props;
+    //eslint-disable-next-line
+    console.log(user);
     const capitaize = string => string.charAt(0).toUpperCase() + string.slice(1);
 
     return (
@@ -49,17 +51,18 @@ class ProfileContainer extends Component {
 }
 
 ProfileContainer.propTypes = {
-  logout: PropTypes.func.isRequired,
+  //eslint-disable-next-line react/require-default-props
+  // logout: PropTypes.func,
   // eslint-disable-next-line react/forbid-prop-types
   user: PropTypes.object.isRequired,
 };
 
-const mapStateToProps = state => ({
-  user: state.authUser,
+const mapStateToProps = () => ({
+  user: JSON.parse(localStorage.getItem('user')),
 });
-
+/*
 const mapDispatchToProps = dispatch => ({
   logout: () => dispatch(logoutRequestAction()),
 });
-
-export default connect(mapStateToProps, mapDispatchToProps)(ProfileContainer);
+*/
+export default connect(mapStateToProps, null)(ProfileContainer);
