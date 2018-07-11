@@ -4,7 +4,7 @@ from datetime import timedelta
 ENVIRONMENT = os.environ.get('DJANGO_ENV', 'dev')
 SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'DJANGO_SECRET_KEY_NOT_FOUND')
 ALLOWED_HOSTS = ['*'] if ENVIRONMENT == 'dev' else ['gradua.sentad.com']
-# DEBUG = ENVIRONMENT == 'dev'
+# DEBUG = ENVIRONMENT == 'dev' TODO remove in production later
 DEBUG = True
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
@@ -150,10 +150,11 @@ IPWARE_PRIVATE_IP_PREFIX = (
 GRAPHENE = {
     'SCHEMA': 'gradua.schema.schema'
 }
-# CORS_ORIGIN_ALLOW_ALL = True
 WSGI_APPLICATION = 'gradua.wsgi.application'
 ROOT_URLCONF = 'gradua.urls'
 LANGUAGE_CODE = 'en-us'
+
+CSRF_COOKIE_SECURE = False
 
 TIME_ZONE = 'UTC'
 USE_I18N = True
