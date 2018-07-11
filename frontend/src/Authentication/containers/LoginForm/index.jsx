@@ -7,7 +7,7 @@ import { connect }          from 'react-redux';
 import { reduxForm, Field } from 'redux-form';
 import { push }             from 'react-router-redux';
 
-import loginUser from '../../actions/login';
+import {loginUser} from '../../api';
 
 class LoginForm extends React.Component {
   componentWillUpdate(nextProps) {
@@ -87,8 +87,11 @@ LoginForm.propTypes = {
   handleLogin: PropTypes.func.isRequired,
   isFetching: PropTypes.bool.isRequired,
   isAuthenticated: PropTypes.bool.isRequired,
-  // eslint-disable-next-line react/require-default-props
   errorMessage: PropTypes.string,
+};
+
+LoginForm.defaultProps = {
+  errorMessage: ""
 };
 
 const mapStateToProps = state => ({

@@ -15,5 +15,4 @@ NavbarMenu.propTypes = {
   children: PropTypes.arrayOf(PropTypes.element).isRequired,
 };
 
-
 export default NavbarMenu;

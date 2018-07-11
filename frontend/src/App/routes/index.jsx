@@ -3,8 +3,8 @@ import { Route, Switch } from 'react-router-dom';
 
 import AuthenticatedRoute from './AuthenticatedRoute';
 
-import { LoginScreen }            from '../../Authentication';
 import { HomePage, NotFoundPage } from '../../Layout';
+import { LoginScreen }            from '../../Authentication';
 
 import Dashboard      from '../../screens/Dashboard';
 import Offers         from '../../screens/Offers';

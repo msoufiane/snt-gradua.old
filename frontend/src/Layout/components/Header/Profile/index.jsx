@@ -7,22 +7,16 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Gravatar from 'react-gravatar';
 import PropTypes from 'prop-types';
-//import { logoutRequestAction } from '../../../../Authentication';
+import LogoutButton from '../../../../Authentication/containers/LogoutButton';
+import {logoutUser} from '../../../../Authentication/api';
 
 
 class ProfileContainer extends Component {
-  handleLogout(event) {
-    event.preventDefault();
-    //this.props.logout();
-  }
-
   render() {
-    const { user } = this.props;
-    //eslint-disable-next-line
-    console.log(user);
+    const { user, handleLogout } = this.props;
     const capitaize = string => string.charAt(0).toUpperCase() + string.slice(1);
 
-    return (
+    return ( user &&
       <li className="dropdown user user-menu">
         <a href="/" className="dropdown-toggle" data-toggle="dropdown">
           <Gravatar email={user.email} size={160} className="user-image" alt="User" />
@@ -41,7 +35,7 @@ class ProfileContainer extends Component {
               <Link to="/account" className="btn btn-default btn-flat"><i className="fa fa-user fs-14" />&nbsp;Account</Link>
             </div>
             <div className="pull-right">
-              <button onClick={this.handleLogout} className="btn btn-default btn-flat"><i className="fa fa-sign-out fs-14" />&nbsp;Logout</button>
+              <LogoutButton onLogoutClick={() => handleLogout()} />
             </div>
           </li>
         </ul>
@@ -51,18 +45,21 @@ class ProfileContainer extends Component {
 }
 
 ProfileContainer.propTypes = {
-  //eslint-disable-next-line react/require-default-props
-  // logout: PropTypes.func,
-  // eslint-disable-next-line react/forbid-prop-types
-  user: PropTypes.object.isRequired,
+  handleLogout: PropTypes.func.isRequired,
+  user: PropTypes.instanceOf(Object),
 };
+
+ProfileContainer.defaultProps = {
+  user: {}
+};
+
 
 const mapStateToProps = () => ({
   user: JSON.parse(localStorage.getItem('user')),
 });
-/*
+
 const mapDispatchToProps = dispatch => ({
-  logout: () => dispatch(logoutRequestAction()),
+  handleLogout: () => logoutUser(dispatch),
 });
-*/
-export default connect(mapStateToProps, null)(ProfileContainer);
+
+export default connect(mapStateToProps, mapDispatchToProps)(ProfileContainer);

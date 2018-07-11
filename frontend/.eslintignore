@@ -1,4 +1,4 @@
-src/registerServiceWorker.js*
+src/App/registerServiceWorker.js*
 src/setupTests.js*
 scripts/*
 config/*
