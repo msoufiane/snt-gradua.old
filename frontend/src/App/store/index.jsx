@@ -20,7 +20,7 @@ function configureStoreProd() {
     compose(enhancers),
   );
 
-  store.subscribe();
+  //store.subscribe();
   return store;
 }
 
@@ -39,7 +39,7 @@ function configureStoreDev() {
     composeSetup(enhancers),
   );
 
-  store.subscribe();
+  //store.subscribe();
 
   if (module.hot) {
     module.hot.accept('../rootReducer', () => {
