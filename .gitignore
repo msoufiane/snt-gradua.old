@@ -107,3 +107,5 @@ frontend/node_modules/
 webpack-stats.prod.json
 webpack-stats.dev.json
 assets/
+src/Authentication/components/
+src/gql/mutations/

@@ -8,7 +8,7 @@ import { LoginForm } from '../../';
 
 
 export default function Login() {
-  document.body.className = "hold-transition login-page";
+  document.body.className = "hold-transition login-page skin-green";
 
   return (
     <div className="login-box">

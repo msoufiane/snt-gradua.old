@@ -1,6 +1,5 @@
 {
   "presets": [
     "react-app"
-    //"apollo-client-preset"
   ]
 }

@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { reduxForm, Field, SubmissionError } from 'redux-form';
 
-import loginUser from '../../../Authentication/actions/login';
+import {loginUser} from '../../../Authentication/api';
 import PermissionsQuery from '../../../gql/queries/roles/permissionsQuery';
 
 
