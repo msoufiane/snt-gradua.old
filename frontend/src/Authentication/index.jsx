@@ -1,3 +1,4 @@
 export { LoginScreen  } from './screens';
-export { LoginForm, LogoutButton } from './containers';
+export { LoginForm } from './containers';
 export { default as loginReducer } from './reducers';
+export { default as AuthenticatedRoute } from './routes';
