@@ -2,20 +2,25 @@
  * Created by soufiaane on 7/22/17.
  */
 
-import {loginError, loginSuccess, requestLogin, logoutError, LogoutSuccess} from '../actions';
+import cookie                                                                 from "react-cookies";
+import { loginError, loginSuccess, requestLogin, logoutError, LogoutSuccess } from '../actions';
 
-export const loginUser =  ({username, password}) => {
+export const loginUser = ({username, password}) => {
 
   let config = {
     method: 'POST',
-    headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-    body: `username=${username}&password=${password}`
+    credentials: "same-origin",
+    headers: {
+      'Content-Type': 'application/json; charset=utf-8',
+      'Accept': 'application/json',
+    },
+    body: JSON.stringify({username, password})
   };
 
   return dispatch => {
     dispatch(requestLogin({username, password}));
 
-    return fetch('api/auth/login/', config)
+    return fetch('/api/auth/login/', config)
       .then(response => response.json().then(user => ({user, response})))
       .then(({user, response}) => {
         if (!response.ok) {
@@ -33,10 +38,14 @@ export const loginUser =  ({username, password}) => {
 export const logoutUser = (dispatch) => {
   let config = {
     method: 'POST',
-    headers: {'Authorization': 'Token '.concat(localStorage.getItem('id_token') || null)}
+    credentials: "same-origin",
+    headers: {
+      'Authorization': 'Token '.concat(localStorage.getItem('id_token') || null),
+      'X-CSRFToken': cookie.load('csrftoken') || null,
+    }
   };
 
-  return fetch('api/auth/logout/', config).then(response => {
+  return fetch('/api/auth/logout/', config).then(response => {
     if (!response.ok) {
       dispatch(logoutError(response.statusText));
     } else {

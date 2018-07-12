@@ -154,7 +154,7 @@ WSGI_APPLICATION = 'gradua.wsgi.application'
 ROOT_URLCONF = 'gradua.urls'
 LANGUAGE_CODE = 'en-us'
 
-CSRF_COOKIE_SECURE = False
+# CSRF_COOKIE_SECURE = False
 
 TIME_ZONE = 'UTC'
 USE_I18N = True
