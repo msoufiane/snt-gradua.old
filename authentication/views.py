@@ -11,7 +11,6 @@ from authentication.models import Account
 from django.contrib.auth.signals import user_logged_in
 from knox.models import AuthToken
 from rest_framework.response import Response
-from knox.settings import knox_settings
 from django.contrib.auth import authenticate, login
 from rest_framework import permissions, status
 
@@ -30,7 +29,6 @@ class LoginView(KnoxLoginView):
     permission_classes = (AllowAny,)
 
     def post(self, request, format=None):
-        UserSerializer = knox_settings.USER_SERIALIZER
         account = authenticate(username=request.data.get('username', None), password=request.data.get('password', None))
 
         if account is not None:
@@ -38,10 +36,7 @@ class LoginView(KnoxLoginView):
                 login(request, account)
                 token = AuthToken.objects.create(account)
                 user_logged_in.send(sender=request.user.__class__, request=request, user=request.user)
-                return Response({
-                    'user': UserSerializer(account).data,
-                    'token': token,
-                })
+                return Response({'token': token})
             else:
                 return Response({
                     'status': 'Unauthorized',

@@ -3,12 +3,13 @@ import PropTypes from 'prop-types';
 
 import {
   AppWrapper, HeaderWrapper, SideBarWrapper, ControlSideBarWrapper,
-  Profile, Notifications, ControlSideBarButton,
+  ProfileContainer, Notifications, ControlSideBarButton,
   ControlSideBarMenu, SideBarMenu, Footer
 } from '../../Layout';
 
 
 const App = function App(props) {
+  document.body.className = "hold-transition login-page skin-green fixed sidebar-mini";
   const {
     activeItem: ActiveItem,
   } = props;
@@ -16,7 +17,7 @@ const App = function App(props) {
     <AppWrapper>
       <HeaderWrapper>
         <Notifications />
-        <Profile />
+        <ProfileContainer />
         <ControlSideBarButton />
       </HeaderWrapper>
 

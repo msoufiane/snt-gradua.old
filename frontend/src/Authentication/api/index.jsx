@@ -27,7 +27,6 @@ export const loginUser = ({username, password}) => {
           dispatch(loginError(user.message));
         } else {
           localStorage.setItem('id_token', user.token);
-          localStorage.setItem('user', JSON.stringify(user.user));
           dispatch(loginSuccess(user))
         }
       })
@@ -50,7 +49,6 @@ export const logoutUser = (dispatch) => {
       dispatch(logoutError(response.statusText));
     } else {
       localStorage.removeItem('id_token');
-      localStorage.removeItem('user');
       dispatch(LogoutSuccess());
     }
   })
