@@ -29,6 +29,7 @@ require('bootstrap');
 require('fastclick');
 require('slimscroll');
 require('admin-lte');
+require('select2');
 
 const GRAPHQL_URI = process.env.NODE_ENV === 'production' ? '/graphql' : 'http://localhost:8000/graphql';
 const httpLink = new HttpLink({uri: GRAPHQL_URI, fetch: fetch, credentials: 'same-origin'});

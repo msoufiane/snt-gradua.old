@@ -12,7 +12,7 @@ import { TrafficSourcesPage } from '../../TrafficSources';
 import { ContactsPage }       from '../../Contacts';
 import { SegmentsPage }       from '../../Segments';
 import { ComponentsPage }     from '../../Components';
-import { CampaignsPage }      from '../../Campaigns';
+import { CampaignsListPage, CampaignsCreatePage }      from '../../Campaigns';
 import { ReportsPage }        from '../../Reports';
 
 import { AccountPage }       from '../../Account';
@@ -40,7 +40,10 @@ export default function Routes() {
       <AuthenticatedRoute exact path="/contacts" component={ContactsPage} activeMenuItem='contacts' />
       <AuthenticatedRoute exact path="/segments" component={SegmentsPage} activeMenuItem='segments' />
       <AuthenticatedRoute exact path="/components" component={ComponentsPage} activeMenuItem='components' />
-      <AuthenticatedRoute exact path="/campaigns" component={CampaignsPage} activeMenuItem='campaigns' />
+
+      <AuthenticatedRoute exact path="/campaigns" component={CampaignsListPage} activeMenuItem='campaigns' />
+      <AuthenticatedRoute exact path="/campaigns/new" component={CampaignsCreatePage} activeMenuItem='campaigns' />
+
       <AuthenticatedRoute exact path="/reports" component={ReportsPage} activeMenuItem='reports' />
 
       (// Navbar Links)
