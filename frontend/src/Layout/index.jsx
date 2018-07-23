@@ -1,7 +1,7 @@
 export {
   ControlSideBarMenu, ControlSideBarItem,
   Version, CopyRight, Footer,
-  NavbarLogo, NavbarMenu, NavbarToggle, ControlSideBarButton, Profile, Settings, Notifications, Messages,
+  NavbarLogo, NavbarMenu, NavbarToggle, ControlSideBarButton, ProfileContainer, Settings, Notifications, Messages,
   SideBarMenu, MenuItem, MenuTree,
   AppWrapper, HeaderWrapper, SideBarWrapper, ControlSideBarWrapper, ContentWrapper,
 } from './components';

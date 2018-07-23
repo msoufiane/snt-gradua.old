@@ -37,7 +37,7 @@ const authMiddleware = new ApolloLink((operation, forward) => {
   operation.setContext({
     headers: {
       'X-CSRFToken': cookie.load('csrftoken') || null,
-      // 'Authorization': 'Token '.concat(localStorage.getItem('id_token') || null) TODO enforce authentication
+      // 'Authorization': 'Token '.concat(localStorage.getItem('id_token') || null) // TODO enforce authentication
     }
   });
   return forward(operation);

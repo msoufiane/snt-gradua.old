@@ -5,7 +5,7 @@ import { submit } from 'redux-form';
 
 import { history } from '../../../App';
 import { ContentWrapper } from '../../../Layout/components/Wrappers';
-import CreateRoleForm from '../../../containers/Roles/CreateRoleForm';
+import { CreateRoleForm } from '../../containers';
 
 const newRole = function ({ handleSubmit }) {
   return (
